@@ -1,0 +1,272 @@
+﻿
+
+@model Game_Web_App.Models.GameModel
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+
+
+  //$(function() {
+   // $( "#radio" ).buttonset();
+ // });
+//  $(".image-radio img").click(function () {
+  //    $(this).prev().attr('checked', true);
+//  })
+
+    </script>
+    <style type="text/css">
+        *, *:before, *:after {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+       
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            color: #384047;
+        }
+
+        form {
+            max-width: 580px;
+            margin: 10px auto;
+            padding: 2px 5px;
+            background: #f4f7f8;
+            border-radius: 8px;
+        }
+
+
+        h1 {
+            margin: 0 0 30px 0;
+            text-align: center;
+        }
+        
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        input[type="datetime"],
+        input[type="email"],
+        input[type="number"],
+        input[type="search"],
+        input[type="tel"],
+        input[type="time"],
+        input[type="url"],
+        textarea,
+        select {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            font-size: 16px;
+            height: auto;
+            margin: 0;
+            outline: 0;
+            width: 100%;
+            background-color: #e8eeef;
+            color: #8a97a0;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+            margin-bottom: 30px;
+        }
+
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin: 0 4% 4% 0;
+        }
+
+        select {
+            padding: 6px;
+            height: 32px;
+            border-radius: 2px;
+        }
+
+        button {
+            padding: 19px 39px 18px 39px;
+            color: #FFF;
+            background-color: #4bc970;
+            font-size: 18px;
+            text-align: center;
+            font-style: normal;
+            border-radius: 5px;
+            width: 100%;
+            border: 1px solid #3ac162;
+            border-width: 1px 1px 3px;
+            box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+            margin-bottom: 10px;
+        }
+      
+
+        fieldset {
+            margin-bottom: 30px;
+            border: none;
+        }
+
+        legend {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+            label.light {
+                font-weight: 300;
+                display: inline;
+            }
+
+        .radio-inline {
+            display: inline-block;
+        }
+        .full {
+            background: url('../../Content/Images/Login Page Final-Recovered-Recovered-Recovered.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+            height: 100%;
+        }
+
+        .number {
+            background-color: #5fcf80;
+            color: #fff;
+            height: 10%;
+            width: 10%;
+            display: inline-block;
+            font-size: 0.8em;
+            margin-right: 4%;
+            line-height: 16%;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+            border-radius: 100%;
+        }
+
+        .row-centered{
+            margin-top: 6%;
+            text-align:center;
+        }
+
+        .radio-inline input[type="radio"]{
+            display: inline-block;
+             margin: 0.7em 1.9em;
+
+
+        }
+
+     
+    </style>
+
+</head>
+<body class="container-fluid full">
+
+    @using (@Html.BeginForm("Page4", "Game", FormMethod.Post, new { id = "formapproval" }))
+    {
+
+       
+            <h1 class="text-center">Sign Up</h1>
+       
+        
+            <form class="col-md-12-center-block">
+
+                <fieldset>
+                    <div class="form-group">
+                        <label for="User name">Name:</label>
+                        @* <input type="text" id="name" name="user_name">*@
+                        @Html.TextBoxFor(model => model.User_name)
+                    </div>
+                    <div class="form-group">
+                        <label for="mail">Email:</label>
+                        @*<input type="email" id="mail" name="user_email">*@
+                        @Html.TextBoxFor(model => model.Email)
+
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        @Html.TextBoxFor(model => model.Password, new { type = "password" })
+                    </div>
+                    <div class="form-group">
+                        <label>Age:</label>
+                        @Html.TextBoxFor(model => model.Age)
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        @*<select>
+                                <option disabled selected value></option>>
+                                <option value="female">female</option>
+                                <option value="male">male</option>
+                                <option value="other">other</option>
+                            </select>*@
+                        @Html.DropDownListFor(m => m.Gender,
+                    new SelectList(Enum.GetValues(typeof(Game_Web_App.Models.Genders))),
+                    "Select Gender")
+                    </div>
+
+                    <p class="text-center">
+                        Please choose the type of housing you live in
+                    </p>
+
+
+                 
+                       
+                   <div class="radio-inline">
+                       <img id="house1" src="~/Content/Images/house_select_1.png"   width="90" height="90" />
+                        @Html.RadioButtonFor(m => m.House_type, "one")
+                    </div>
+
+                    <div class="radio-inline">
+                       <label for="radio2"><img src="~/Content/Images/house_select_2.png" width="90" height="90" /> </label>
+                       <label id="radio1"> @Html.RadioButtonFor(m => m.House_type, "two")  </label>
+                    </div>
+
+                    <div class="radio-inline">
+
+                       <label for="radio3"><img src="~/Content/Images/house_select_3.png" width="90" height="90" /> </label>
+                        @Html.RadioButtonFor(m => m.House_type, "three")
+                    </div>
+
+                    <div class="radio-inline">
+                       <label for="radio4"><img src="~/Content/Images/house_select_4.png" width="90" height="90" /></label>
+                        @Html.RadioButtonFor(m => m.House_type, "four")
+                        
+                    </div>
+
+
+
+                    <br />
+                       
+                   
+                    <div class="row-centered">
+                        <div class="col-mid-12">
+                            <input type="submit" class="btn btn-lg btn-success btn-primary" value="Register" />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+     
+
+    }
+
+</body>
+</html>

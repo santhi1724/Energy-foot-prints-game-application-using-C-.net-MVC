@@ -1,0 +1,204 @@
+﻿@model Game_Web_App.Models.table_wisdom
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>score</title>
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+          
+           .full{
+	        background: url('../../Content/Images/Page 9 Score With Star Outlines 10.21.17.png') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+            margin: 0;
+            padding: 0px;
+            height: auto;
+            width: 100%;
+	}
+           #next{
+		      position: absolute;
+              top: 75%;
+              left: 85%;
+              width: 5%;
+             height: auto;
+
+	}
+           #replay{
+		position: absolute;
+              top: 76%;
+              left: 14.5%;
+              width: 5%;
+              height: auto;
+
+	}
+         /*  .container .img-responsive {
+            float: right;
+            max-width: 100%;
+            max-height: 100%;
+            margin-top: 28%;
+            margin-bottom: 10%;
+            width: 15%;
+            height: 15%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            position: relative;
+        }*/
+         #hints{
+             position: absolute;
+            top: 33.1%;
+            left: 58%;
+             width:10%;
+            border: none;
+            background: transparent;
+            font-size: 180%;
+            color: brown;
+
+         }
+         #time {
+            position: absolute;
+            top: 28.4%;
+            left: 60%;
+             width:10%;
+            border: none;
+            background: transparent;
+            font-size: 180%;
+            color: brown;
+        }
+         #objects {
+            position: absolute;
+            top: 42.8%;
+            left: 68%;
+             width:10%;
+            border: none;
+            background: transparent;
+            font-size: 180%;
+            color: brown;
+        }
+         #coins {
+            position: absolute;
+            top:37.9%;
+            left: 62%;
+             width:10%;
+            border: none;
+            background: transparent;
+            font-size: 180%;
+            color: brown;
+        }
+          #level {
+            position: absolute;
+            top: 53%;
+            left: 57%;
+             width:10%;
+            border: none;
+            background: transparent;
+            font-size: 155%;
+            color: brown;
+        }
+          #Star1{
+		position: absolute;
+		top: 84.2%;
+		left: 39.9%;
+		width: 5%;
+		height: 9%;
+	}
+	#Star2{
+		position: absolute;
+		top: 84.2%;
+		left: 48.3%;
+		width: 5%;
+		height: 9%;
+	}
+	#Star3{
+		position: absolute;
+		top: 84.2%;
+		left: 56.7%;
+		width: 5%;
+		height: 9%;
+	}
+    #replaytext{
+        position: absolute;
+        top: 86%;
+        left: 13.5%;
+        width: 10%;
+        border: none;
+        background: transparent;
+        font-size: 200%;
+        color: white;
+
+    }
+    #continuetext{
+        position: absolute;
+        top: 86%;
+        left: 84%;
+        width: 10%;
+        border: none;
+        background: transparent;
+        font-size: 200%;
+        color: white;
+}
+
+</style>
+
+</head>
+<body class="container-fluid full">
+    
+  <label id="hints"> @ViewData["finalhints"] </label> 
+    <label id="time"> @ViewData["finaltime"] </label> 
+    <label id="objects"> @ViewData["finalobjects"] </label> 
+    <label id="coins"> @ViewData["finalcoins"] </label> 
+     <label id="level"> @ViewData["finallevel"] </label> 
+    <textarea id="score"> @ViewData["finalscore"] </textarea>   
+    <img src="~/Content/Images/Continue Button.png" id="next" alt="submit" onclick="@("window.location.href=' " + @Url.Action("Page9","Game") + " ' ");" />
+    <img src="~/Content/Images/Replay.png" id="replay" alt="submit" onclick="@("window.location.href=' " + @Url.Action("wisdom","Game") + " ' ");" />
+    <img id="Star1" src="~/Content/Images/Star filed.png">
+    <img id="Star2" src="~/Content/Images/Star filed.png">
+    <img id="Star3" src="~/Content/Images/Star filed.png">
+    <div>
+        <label id="replaytext"> Replay </label>
+    </div>
+    <div>
+        <label id="continuetext">Continue </label> 
+    </div>
+<script>
+    
+    $(document).ready(function () {
+        $("#Star1").hide();
+        $("#Star2").hide();
+        $("#Star3").hide();
+        $('#score').hide();
+
+        var starValue = jQuery("textarea#score").val();
+        if (starValue <= 550) {
+
+            $('#Star1').show();
+        }
+        else if (starValue <= 750) {
+            $('#Star1').show();
+            $('#Star2').show();
+        }
+        else {
+            $('#Star1').show();
+            $('#Star2').show();
+            $('#Star3').show();
+        }
+    });
+   
+    
+    
+
+</script>
+</body>
+ 
+
+</html>

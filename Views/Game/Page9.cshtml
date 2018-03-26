@@ -1,0 +1,47 @@
+﻿@model Game_Web_App.Models.Table2
+
+@{
+    Layout = null;
+}
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>caulk</title>
+
+    <script src="jquery-2.2.4.min.js"></script>
+
+    <style type="text/css">
+       body {
+            background: url('../../Content/Images/Example Page 11 Why Caulk.png')no-repeat center center fixed;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+        }
+
+        #next {
+            position: absolute;
+            top: 80%;
+            left: 88%;
+            width: 4%;
+            height: auto;
+        }
+
+        #learn {
+            position: absolute;
+            top: 80%;
+            left: 14%;
+        }
+       
+    </style>
+
+</head>
+<body>
+       
+     <img src="~/Content/Images/Page 11 Book Button.png" id="learn" alt="submit" onclick="@("window.location.href=' " + @Url.Action("Page10","Game") + " ' ");" />
+     <img src="~/Content/Images/Continue Button.png" id="next" alt="submit" onclick="@("window.location.href=' " + @Url.Action("Page12a","Game") + " ' ");" />
+  
+</body>
+</html>

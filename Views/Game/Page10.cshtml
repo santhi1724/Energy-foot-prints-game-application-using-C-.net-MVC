@@ -1,0 +1,47 @@
+﻿@model Game_Web_App.Models.Table2
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Page10</title>
+    <script src="jquery-2.2.4.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background: url('../../Content/Images/Learning More About Caulking.png')no-repeat center center fixed;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+        }
+
+        #next {
+            position: absolute;
+            top: 78%;
+            left: 88%;
+            width: 4%;
+            height: auto;
+        }
+
+        #link {
+            position: absolute;
+            top: 77%;
+            left: 55%;
+            -webkit-filter: opacity(9);
+            filter: opacity(9);
+            font-weight: 200;
+            font-size:larger;
+        }
+    </style>
+
+</head>
+<body>
+        <img src="~/Content/Images/Continue Button.png" id="next" alt="submit" onclick="@("window.location.href=' " + @Url.Action("Page12a","Game") + " ' ");" />
+        <a id ="link" href="http://energy.gov/energysaver/caulking" target="_blank">Learn more about caulking</a>
+</body>
+  
+</html>

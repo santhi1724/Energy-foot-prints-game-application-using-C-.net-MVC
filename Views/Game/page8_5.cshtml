@@ -1,0 +1,38 @@
+﻿@model Game_Web_App.Models.Table2
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Page10</title>
+    <script src="jquery-2.2.4.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background: url('../../Content/Images/thisisyourwisdompuzzle.png')no-repeat center center fixed;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+        }
+
+        #next {
+            position: absolute;
+            top: 78%;
+            left: 88%;
+            width: 4%;
+            height: auto;
+        }
+
+       
+    </style>
+
+</head>
+<body>
+    <img src="~/Content/Images/Continue Button.png" id="next" alt="submit" onclick="@("window.location.href=' " + @Url.Action("wisdom","Game") + " ' ");" />
+</body>
+
+</html>

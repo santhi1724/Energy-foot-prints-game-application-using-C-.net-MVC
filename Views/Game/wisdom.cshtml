@@ -1,0 +1,555 @@
+﻿@model Game_Web_App.Models.table_wisdom
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>wisdom</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+
+    </script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="jquery-2.2.4.min.js"></script>
+    <style type="text/css">
+        body {
+             background: url('../../Content/Images/wisdom puzzle background.png') no-repeat center center fixed;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+        }
+        
+        #gun {
+            position: absolute;
+            top: 42%;
+            left: 61%;
+            /*-webkit-filter: opacity(.5);
+            filter: opacity(.5);*/
+        }
+
+        #tool {
+            position: absolute;
+            top: 6%;
+            left: 52%;
+            /*
+            -webkit-filter: opacity(.5);
+            filter: opacity(.5);*/
+        }
+
+        #cloth {
+            position: absolute;
+            top: 80%;
+            left: 30%;
+            /*
+            -webkit-filter: opacity(0.4);
+            filter: opacity(0.4);*/
+        }
+
+        #knife {
+            position: absolute;
+            top: 65%;
+            left: 47%;
+           /* -webkit-filter: opacity(0.4);
+            filter: opacity(0.4);*/
+        }
+
+        #time {
+            position: absolute;
+            top: 89%;
+            left: 20%;
+            font-size: 25pt;
+            color: white;
+        }
+
+        #second_gold {
+            position: absolute;
+            top: 60%;
+            left: 66%;
+        }
+
+        #third_gold {
+            position: absolute;
+            top: 60%;
+            left: 68%;
+        }
+
+        #heart1 {
+            /*position: absolute;
+            top: 249px;
+            left: 270px;*/
+            position: absolute;
+            top: 34%;
+            left: 4%;
+            height: 11%;
+            width: 11%;
+        }
+
+        #heart2 {
+            /*position: absolute;
+            top: 339px;
+            left: 270px;*/
+            position: absolute;
+            top: 50%;
+            left: 3.1%;
+            height: 11%;
+            width: 11.5%;
+        }
+
+        #heart3 {
+            /*position: absolute;
+            top: 419px;
+            left: 270px;*/
+            position: absolute;
+            top: 64%;
+            left: 2%;
+            height: 11%;
+            width: 11.5%;
+        }
+
+        #heart4 {
+            /*position: absolute;
+            top: 516px;
+            left: 270px;*/
+            position: absolute;
+            top: 77.8%;
+            left: 5%;
+            height: 9.3%;
+            width: 9%;
+        }
+
+        #hint1 {
+            /*position: absolute;
+            top: 150px;
+            left: 100px;*/
+            position: absolute;
+            left: 13%;
+            top: 22%;
+            height: auto;
+            width: 1.5%;
+        }
+
+        #hint2 {
+            position: absolute;
+            left: 8%;
+            top: 22%;
+            height: auto;
+            width: 1.5%;
+        }
+
+        #hint3 {
+            position: absolute;
+           
+        }
+
+        #gif {
+            position: absolute;
+            top: 90%;
+            left: 14%;
+            width: 5%;
+            height: 8%;
+        }
+
+        #next {
+            /*top: 580px;
+            left: 190px;*/
+            position: absolute;
+            top: 90%;
+            left: 5%;
+            width: 4%;
+            height: 7%;
+        }
+    </style>
+</head>
+<body>
+@using (Html.BeginForm("score", "Game", FormMethod.Post, new { id = "formapproval" }))
+{
+    <img id="gun" src="../../Content/Images/caulking gun.png" >
+    <img id="tool" src="../../Content/Images/caulking tool copy.png" >
+    <img id="cloth" src="../../Content/Images/cleaning cloth.png" >
+    <img id="knife" src="../../Content/Images/utility knife.png" >
+
+    <img id="second_gold" src="../../Content/Images/Hint Three copy.png"> // Additional hints
+    <img id="third_gold" src="../../Content/Images/Hint Three copy.png">
+    <img id="heart1" src="../../Content/Images/utility knife copy.png" >
+    <img id="heart3" src="../../Content/Images/caulk gun.png" >
+    <img id="heart2" src="../../Content/Images/caulking gun copy.png" >
+    <img id="heart4" src="../../Content/Images/cleaning cloth icon.png" >
+    <img id="hint1" src="../../Content/Images/Hint One.png">  // hints
+    <img id="hint2" src="../../Content/Images/Hint One.png" height="23">
+    <img id="hint3" src="../../Content/Images/Hint One.png" height="23">
+    <img id="gif" src="../../Content/Images/icemelting.gif" alt="loading" title="loading">
+    <div id="timer"><span id="time">02:00</span></div>
+  
+    <div class="container">
+        <input id="next" type="image" src="~/Content/Images/Play button .png" img class="img-responsive" alt="submit" onclick="ScoreValues()" />
+    </div>
+  @*<audio id="audio" style="display:none;" src="../../Content/A_Long_Cold.mp3"></audio>*@
+        <script>
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + ":" + seconds;
+
+        if (--timer < 0) {
+            timer = duration;
+        }
+    }, 1000);
+}
+  var initial_time=0;
+  var initial_minutes=0;
+  var initial_seconds =0;
+  var final_time=0;
+  var final_minutes=0;
+  var final_seconds=0;
+  var minutes_d =0;
+  var time=0;
+  var hint_counter=0;
+  var score=0;
+  var object_counter =0;
+
+   initial_time = new Date();
+   initial_minutes= initial_time.getMinutes();
+   initial_seconds = initial_time.getSeconds();
+
+window.onload = function () {
+
+    var fiveMinutes = 60 * 2,
+        display = document.querySelector('#time');
+    startTimer(fiveMinutes, display);
+};
+    var gun=0;
+	var tool=0;
+	var cloth=0;
+	var knife=0;
+	var hint1=0;
+	var hint2=0;
+	var hint3=0;
+$(document).ready(function ()  {
+	$("#heart1").hide();
+	$("#heart2").hide();
+	$("#heart3").hide();
+	$("#heart4").hide();
+	$("#hint3").hide();
+
+
+
+});
+$("#first_gold").on("click", function()
+{
+
+// if user can find additional hint then we give user an hint
+    if (hint1==1) {
+    	hint1=0;
+
+    	$("#hint1").show();
+    	$("#first_gold").hide();
+    }
+    else if (hint2==1) {
+    	hint2=0;
+    	$("#hint2").show();
+    	$("#first_gold").hide();
+
+    }
+    else if (hint3==1) {
+    	hint3=0;
+    	$("#hint3").show();
+    	$("#first_gold").hide();
+
+    }
+
+});
+$("#second_gold").on("click", function()
+{
+
+
+    if (hint1==1) {
+    	hint1=0;
+    	$("#hint1").show();
+    	$("#second_gold").hide();
+    }
+    else if (hint2==1) {
+    	hint2=0;
+    	$("#hint2").show();
+    	$("#second_gold").hide();
+
+    }
+    else if (hint3==1) {
+    	hint3=0;
+    	$("#hint3").show();
+    	$("#second_gold").hide();
+
+    }
+});
+$("#third_gold").on("click", function()
+{
+
+
+    if (hint1==1) {
+    	hint1=0;
+    	$("#hint1").show();
+    	$("#third_gold").hide();
+    }
+    else if (hint2==1) {
+    	hint2=0;
+    	$("#hint2").show();
+    	$("#third_gold").hide();
+
+    }
+    else if (hint3==1) {
+    	hint3=0;
+    	$("#hint3").show();
+    	$("#third_gold").hide();
+
+    }
+});
+
+$("#hint1").on("click",function(){
+	if (cloth==0) {
+		cloth=1;
+		$("#cloth").css({ height: 100});
+		hint_counter++;
+		hint1=1;
+		$("#hint1").hide();
+		return false;
+	}
+	else if (tool==0) {
+		tool=1;
+		$("#tool").css({height:200});
+		hint_counter++;
+		hint1=1;
+		$("#hint1").hide();
+
+		return false;
+
+	}
+	else if (gun==0) {
+		gun=1;
+		$("#gun").css({height:100});
+		hint_counter++;
+		hint1=1;
+		$("#hint1").hide();
+		return false;
+	}
+	else if (knife==0) {
+		knife=1;
+		$("#knife").css({height:100});
+		hint_counter++;
+		hint1=1;
+		$("#hint1").hide();
+		return false;
+	}
+	else{
+		alert("You dont require me");
+	}
+
+});
+
+$("#hint2").on("click",function(){
+	if (cloth==0) {
+		cloth=1;
+		$("#cloth").css({ height: 100});
+		hint_counter++;
+		hint2=1;
+		$("#hint2").hide();
+		return false;
+	}
+	else if (tool==0) {
+		tool=1;
+		$("#tool").css({height:200});
+		hint_counter++;
+		hint2=1;
+		$("#hint2").hide();
+
+		return false;
+
+	}
+	else if (gun==0) {
+		gun=1;
+		$("#gun").css({height:100});
+		hint_counter++;
+		hint2=1;
+		$("#hint2").hide();
+		return false;
+	}
+	else if (knife==0) {
+		knife=1;
+		$("#knife").css({height:100});
+		hint_counter++;
+		hint2=1;
+		$("#hint2").hide();
+		return false;
+	}
+	else{
+		alert("You dont require me");
+	}
+
+});
+
+$("#hint3").on("click",function(){
+	if (cloth==0) {
+		cloth=1;
+		$("#cloth").css({ height: 100});
+		hint3=1;
+		$("#hint3").hide();
+		return false;
+	}
+	else if (tool==0) {
+		tool=1;
+		$("#tool").css({height:200});
+		hint3=1;
+		$("#hint3").hide();
+
+		return false;
+
+	}
+	else if (gun==0) {
+		gun=1;
+		$("#gun").css({height:100});
+		hint3=1;
+		$("#hint3").hide();
+		return false;
+	}
+	else if (knife==0) {
+		knife=1;
+		$("#knife").css({height:100});
+		hint3=1;
+		$("#hint3").hide();
+		return false;
+	}
+	else{
+		alert("You dont require me");
+	}
+
+});
+
+
+$("#gun").on("click", function()
+{
+
+    gun=1;
+    $("#heart2").show();
+    object_counter++;
+    $("#gun").hide();
+});
+$("#tool").on("click", function()
+{
+	tool=1;
+
+    $("#heart3").show();
+     object_counter++;
+    $("#tool").hide();
+
+});
+$("#cloth").on("click", function()
+{
+	cloth=1;
+
+    $("#heart4").show();
+     object_counter++;
+    $("#cloth").hide();
+});
+$("#knife").on("click", function()
+{
+	knife=1;
+
+    $("#heart1").show();
+     object_counter++;
+    $("#knife").hide();
+});
+
+$("#next").on("click", function Scorevalues()
+{
+
+	var final_time = new Date();
+	var final_minutes= final_time.getMinutes();
+	var final_seconds=final_time.getSeconds();
+    var minutes_d= final_minutes-initial_minutes;
+
+    if(minutes_d<= 2){
+
+    	if(minutes_d ==1){
+    		time = (60- initial_seconds) + final_seconds;
+
+    	}
+    	else if(minutes_d == 2){
+    		time = 60 + (60- initial_seconds) + final_seconds;
+    	}
+    	else {
+    		time = final_seconds-initial_seconds;
+    	}
+
+    }
+    else{
+    	time = 1000;
+    }
+
+ if (time <= 120) {
+ 	if (object_counter != 0) {
+ 		if (time <= 30){
+ 			score =  400 + (object_counter*150) - (hint_counter*50);
+ 		}
+ 		else if (time <= 60 && time >= 30){
+ 			score = 300 + (object_counter*150) - (hint_counter*50);
+ 		}
+ 		else if (time <= 90 && time >= 60){
+ 			score = 200 + (object_counter*150) - (hint_counter*50);
+ 		}
+ 		else if (time <=120 && time >= 90) {
+ 			score = 100 + (object_counter*150) - (hint_counter*50);
+ 		}
+ 	}
+ 	else {
+ 		score = 100;
+ 	}
+
+
+ }
+
+else {
+ 	alert("GAME OVER !!")
+ }
+    //alert("enter ajax")
+
+ $.ajax({
+     url: "ScoreValues",
+     data: JSON.stringify({ time: time, hint_counter: hint_counter, object_counter: object_counter, score: score}),
+     contentType: 'application/json',
+     type: "POST",
+     async: false,
+     success: function (data) {
+
+     },
+     error: function () {
+     }
+ });
+ //alert(object_counter)
+     //alert(score)
+
+
+
+});
+
+
+        </script>
+
+}
+</body>
+</html>

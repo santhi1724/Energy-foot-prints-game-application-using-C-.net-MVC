@@ -1,0 +1,59 @@
+﻿ @model Game_Web_App.Models.GameModel
+
+@{
+    Layout = null;
+}
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>User Login </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+        .full {
+            /*background-image: url('../../Content/Images/E-foot print home page background.jpg');*/
+            background: url('../../Content/Images/E-foot print home page.png') no-repeat center center fixed;
+            webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+            margin: 0;
+            padding: 0px;
+            height: auto;
+            width: 100%;
+        }
+
+        .container .img-responsive {
+            position: absolute;
+            top: 56%;
+            left: 75%;
+            width: 13%;
+            height: 26%;
+        }
+        #info{
+            position: absolute;
+            top: 55%;
+            left: 8%;
+            width: 13%;
+            height: 24%;
+        }
+    </style>
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+</head>
+<body class="container-fluid full">
+    <div class="container">
+        <input type="image" src="~/Content/Images/Button_play.png" img class="img-responsive" alt="submit" onclick="@("window.location.href=' " + @Url.Action("Page2","Game") + " ' ");" />
+    </div>
+    <div id="info">
+        <input type="image" src="~/Content/Images/info-512.png" img class="img-responsive" alt="submit" onclick="@("window.location.href=' " + @Url.Action("Page2","Game") + " ' ");" />
+    </div>
+
+
+</body>
+</html>
+

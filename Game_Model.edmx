@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GameDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Heat">
+          <Key>
+            <PropertyRef Name="TabId_ID" />
+          </Key>
+          <Property Name="TabId_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AC_status" Type="bit" />
+          <Property Name="Window_status" Type="bit" />
+          <Property Name="Room_temp_Page4" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_1">
+          <Key>
+            <PropertyRef Name="TabId_ID" />
+          </Key>
+          <Property Name="TabId_ID" Type="int" Nullable="false" />
+          <Property Name="AC_status" Type="bit" />
+          <Property Name="Window_status" Type="bit" />
+          <Property Name="Room_temp_Page4" Type="int" />
+        </EntityType>
+        <EntityType Name="Table_2">
+          <Key>
+            <PropertyRef Name="Tab2_ID" />
+          </Key>
+          <Property Name="Tab2_ID" Type="int" Nullable="false" />
+          <Property Name="Room_temp_Heat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AC_status_heat" Type="binary" MaxLength="50" />
+          <Property Name="Window_status_heat" Type="binary" MaxLength="50" />
+          <Property Name="Blinds_status_heat" Type="binary" MaxLength="50" />
+          <Property Name="Fan_status_heat" Type="binary" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_3">
+          <Key>
+            <PropertyRef Name="Tab2_ID" />
+          </Key>
+          <Property Name="Tab2_ID" Type="int" Nullable="false" />
+          <Property Name="Room_temp_Heat" Type="int" Nullable="false" />
+          <Property Name="AC_status_heat" Type="bit" />
+          <Property Name="Window_status_heat" Type="bit" />
+          <Property Name="Blinds_status_heat" Type="bit" />
+          <Property Name="Fan_status_heat" Type="bit" />
+        </EntityType>
+        <EntityType Name="Table_5">
+          <Key>
+            <PropertyRef Name="Tab2_ID" />
+          </Key>
+          <Property Name="Tab2_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Room_temp_Heat" Type="int" Nullable="false" />
+          <Property Name="AC_status_heat" Type="bit" />
+          <Property Name="Window_status_heat" Type="bit" />
+          <Property Name="Blinds_status_heat" Type="bit" />
+          <Property Name="Fan_status_heat" Type="bit" />
+        </EntityType>
+        <EntityType Name="Table_7">
+          <Key>
+            <PropertyRef Name="tab7_ID" />
+          </Key>
+          <Property Name="tab7_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="room_temp_7" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_9">
+          <Key>
+            <PropertyRef Name="Tab9_ID" />
+          </Key>
+          <Property Name="Tab9_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Room_temp_bill" Type="int" Nullable="false" />
+          <Property Name="heat_status_bill" Type="bit" />
+          <Property Name="Window_status_bill" Type="bit" />
+          <Property Name="ducts_status_bill" Type="bit" />
+          <Property Name="caulking_status_bill" Type="bit" />
+        </EntityType>
+        <EntityType Name="Table_Cold">
+          <Key>
+            <PropertyRef Name="Tab8_ID" />
+          </Key>
+          <Property Name="Tab8_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Heat_status_cold" Type="bit" />
+          <Property Name="Win_ins_status_cold" Type="bit" />
+          <Property Name="Room_temp_cold" Type="int" Nullable="false" />
+          <Property Name="duct_status_cold" Type="bit" />
+          <Property Name="caulk_status_cold" Type="bit" />
+        </EntityType>
+        <EntityType Name="Table_Housing">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="House_type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_wisdom">
+          <Key>
+            <PropertyRef Name="Tab_wisdom_ID" />
+          </Key>
+          <Property Name="Tab_wisdom_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="time" Type="int" Nullable="false" />
+          <Property Name="hint_counter" Type="int" />
+          <Property Name="object_counter" Type="int" />
+          <Property Name="score" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="GameDBModelStoreContainer">
+          <EntitySet Name="Heat" EntityType="Self.Heat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_1" EntityType="Self.Table_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_2" EntityType="Self.Table_2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_3" EntityType="Self.Table_3" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_5" EntityType="Self.Table_5" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_7" EntityType="Self.Table_7" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_9" EntityType="Self.Table_9" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Cold" EntityType="Self.Table_Cold" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Housing" EntityType="Self.Table_Housing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_wisdom" EntityType="Self.Table_wisdom" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GameDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Heat">
+          <Key>
+            <PropertyRef Name="TabId_ID" />
+          </Key>
+          <Property Name="TabId_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AC_status" Type="Boolean" />
+          <Property Name="Window_status" Type="Boolean" />
+          <Property Name="Room_temp_Page4" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Table_1">
+          <Key>
+            <PropertyRef Name="TabId_ID" />
+          </Key>
+          <Property Name="TabId_ID" Type="Int32" Nullable="false" />
+          <Property Name="AC_status" Type="Boolean" />
+          <Property Name="Window_status" Type="Boolean" />
+          <Property Name="Room_temp_Page4" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Table_2">
+          <Key>
+            <PropertyRef Name="Tab2_ID" />
+          </Key>
+          <Property Name="Tab2_ID" Type="Int32" Nullable="false" />
+          <Property Name="Room_temp_Heat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AC_status_heat" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="Window_status_heat" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="Blinds_status_heat" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="Fan_status_heat" Type="Binary" MaxLength="50" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="Table_3">
+          <Key>
+            <PropertyRef Name="Tab2_ID" />
+          </Key>
+          <Property Name="Tab2_ID" Type="Int32" Nullable="false" />
+          <Property Name="Room_temp_Heat" Type="Int32" Nullable="false" />
+          <Property Name="AC_status_heat" Type="Boolean" />
+          <Property Name="Window_status_heat" Type="Boolean" />
+          <Property Name="Blinds_status_heat" Type="Boolean" />
+          <Property Name="Fan_status_heat" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Table_5">
+          <Key>
+            <PropertyRef Name="Tab2_ID" />
+          </Key>
+          <Property Name="Tab2_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Room_temp_Heat" Type="Int32" Nullable="false" />
+          <Property Name="AC_status_heat" Type="Boolean" />
+          <Property Name="Window_status_heat" Type="Boolean" />
+          <Property Name="Blinds_status_heat" Type="Boolean" />
+          <Property Name="Fan_status_heat" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Table_Housing">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="House_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="GameDBEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Heats" EntityType="Self.Heat" />
+          <EntitySet Name="Table_1" EntityType="Self.Table_1" />
+          <EntitySet Name="Table_2" EntityType="Self.Table_2" />
+          <EntitySet Name="Table_3" EntityType="Self.Table_3" />
+          <EntitySet Name="Table_5" EntityType="Self.Table_5" />
+          <EntitySet Name="Table_Housing" EntityType="Self.Table_Housing" />
+          <EntitySet Name="Table_7" EntityType="GameDBModel.Table_7" />
+          <EntitySet Name="Table_Cold" EntityType="GameDBModel.Table_Cold" />
+          <EntitySet Name="Table_wisdom" EntityType="GameDBModel.Table_wisdom" />
+          <EntitySet Name="Table_9" EntityType="GameDBModel.Table_9" />
+        </EntityContainer>
+        <EntityType Name="Table_7">
+          <Key>
+            <PropertyRef Name="tab7_ID" />
+          </Key>
+          <Property Name="tab7_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="room_temp_7" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_Cold">
+          <Key>
+            <PropertyRef Name="Tab8_ID" />
+          </Key>
+          <Property Name="Tab8_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Heat_status_cold" Type="Boolean" />
+          <Property Name="Win_ins_status_cold" Type="Boolean" />
+          <Property Name="Room_temp_cold" Type="Int32" Nullable="false" />
+          <Property Name="duct_status_cold" Type="Boolean" />
+          <Property Name="caulk_status_cold" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Table_wisdom">
+          <Key>
+            <PropertyRef Name="Tab_wisdom_ID" />
+          </Key>
+          <Property Name="Tab_wisdom_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="time" Type="Int32" Nullable="false" />
+          <Property Name="hint_counter" Type="Int32" />
+          <Property Name="object_counter" Type="Int32" />
+          <Property Name="score" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Table_9">
+          <Key>
+            <PropertyRef Name="Tab9_ID" />
+          </Key>
+          <Property Name="Tab9_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Room_temp_bill" Type="Int32" Nullable="false" />
+          <Property Name="heat_status_bill" Type="Boolean" />
+          <Property Name="Window_status_bill" Type="Boolean" />
+          <Property Name="ducts_status_bill" Type="Boolean" />
+          <Property Name="caulking_status_bill" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GameDBModelStoreContainer" CdmEntityContainer="GameDBEntities2">
+          <EntitySetMapping Name="Heats">
+            <EntityTypeMapping TypeName="GameDBModel.Heat">
+              <MappingFragment StoreEntitySet="Heat">
+                <ScalarProperty Name="TabId_ID" ColumnName="TabId_ID" />
+                <ScalarProperty Name="AC_status" ColumnName="AC_status" />
+                <ScalarProperty Name="Window_status" ColumnName="Window_status" />
+                <ScalarProperty Name="Room_temp_Page4" ColumnName="Room_temp_Page4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_1">
+            <EntityTypeMapping TypeName="GameDBModel.Table_1">
+              <MappingFragment StoreEntitySet="Table_1">
+                <ScalarProperty Name="TabId_ID" ColumnName="TabId_ID" />
+                <ScalarProperty Name="AC_status" ColumnName="AC_status" />
+                <ScalarProperty Name="Window_status" ColumnName="Window_status" />
+                <ScalarProperty Name="Room_temp_Page4" ColumnName="Room_temp_Page4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_2">
+            <EntityTypeMapping TypeName="GameDBModel.Table_2">
+              <MappingFragment StoreEntitySet="Table_2">
+                <ScalarProperty Name="Tab2_ID" ColumnName="Tab2_ID" />
+                <ScalarProperty Name="Room_temp_Heat" ColumnName="Room_temp_Heat" />
+                <ScalarProperty Name="AC_status_heat" ColumnName="AC_status_heat" />
+                <ScalarProperty Name="Window_status_heat" ColumnName="Window_status_heat" />
+                <ScalarProperty Name="Blinds_status_heat" ColumnName="Blinds_status_heat" />
+                <ScalarProperty Name="Fan_status_heat" ColumnName="Fan_status_heat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_3">
+            <EntityTypeMapping TypeName="GameDBModel.Table_3">
+              <MappingFragment StoreEntitySet="Table_3">
+                <ScalarProperty Name="Tab2_ID" ColumnName="Tab2_ID" />
+                <ScalarProperty Name="Room_temp_Heat" ColumnName="Room_temp_Heat" />
+                <ScalarProperty Name="AC_status_heat" ColumnName="AC_status_heat" />
+                <ScalarProperty Name="Window_status_heat" ColumnName="Window_status_heat" />
+                <ScalarProperty Name="Blinds_status_heat" ColumnName="Blinds_status_heat" />
+                <ScalarProperty Name="Fan_status_heat" ColumnName="Fan_status_heat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_5">
+            <EntityTypeMapping TypeName="GameDBModel.Table_5">
+              <MappingFragment StoreEntitySet="Table_5">
+                <ScalarProperty Name="Tab2_ID" ColumnName="Tab2_ID" />
+                <ScalarProperty Name="Room_temp_Heat" ColumnName="Room_temp_Heat" />
+                <ScalarProperty Name="AC_status_heat" ColumnName="AC_status_heat" />
+                <ScalarProperty Name="Window_status_heat" ColumnName="Window_status_heat" />
+                <ScalarProperty Name="Blinds_status_heat" ColumnName="Blinds_status_heat" />
+                <ScalarProperty Name="Fan_status_heat" ColumnName="Fan_status_heat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Housing">
+            <EntityTypeMapping TypeName="GameDBModel.Table_Housing">
+              <MappingFragment StoreEntitySet="Table_Housing">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="User_name" ColumnName="User_name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="House_type" ColumnName="House_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_7">
+            <EntityTypeMapping TypeName="GameDBModel.Table_7">
+              <MappingFragment StoreEntitySet="Table_7">
+                <ScalarProperty Name="room_temp_7" ColumnName="room_temp_7" />
+                <ScalarProperty Name="tab7_ID" ColumnName="tab7_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Cold">
+            <EntityTypeMapping TypeName="GameDBModel.Table_Cold">
+              <MappingFragment StoreEntitySet="Table_Cold">
+                <ScalarProperty Name="caulk_status_cold" ColumnName="caulk_status_cold" />
+                <ScalarProperty Name="duct_status_cold" ColumnName="duct_status_cold" />
+                <ScalarProperty Name="Room_temp_cold" ColumnName="Room_temp_cold" />
+                <ScalarProperty Name="Win_ins_status_cold" ColumnName="Win_ins_status_cold" />
+                <ScalarProperty Name="Heat_status_cold" ColumnName="Heat_status_cold" />
+                <ScalarProperty Name="Tab8_ID" ColumnName="Tab8_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_wisdom">
+            <EntityTypeMapping TypeName="GameDBModel.Table_wisdom">
+              <MappingFragment StoreEntitySet="Table_wisdom">
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="object_counter" ColumnName="object_counter" />
+                <ScalarProperty Name="hint_counter" ColumnName="hint_counter" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="Tab_wisdom_ID" ColumnName="Tab_wisdom_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_9">
+            <EntityTypeMapping TypeName="GameDBModel.Table_9">
+              <MappingFragment StoreEntitySet="Table_9">
+                <ScalarProperty Name="caulking_status_bill" ColumnName="caulking_status_bill" />
+                <ScalarProperty Name="ducts_status_bill" ColumnName="ducts_status_bill" />
+                <ScalarProperty Name="Window_status_bill" ColumnName="Window_status_bill" />
+                <ScalarProperty Name="heat_status_bill" ColumnName="heat_status_bill" />
+                <ScalarProperty Name="Room_temp_bill" ColumnName="Room_temp_bill" />
+                <ScalarProperty Name="Tab9_ID" ColumnName="Tab9_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,83 @@
+﻿@model Game_Web_App.Models.GameModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Page6</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+
+    </script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background-repeat: no-repeat;
+            background-position: -70px -55px;
+        }
+        /* #next{
+            position: absolute;
+            top: 520px;
+            left: 1050px;
+            height: 70px;
+            width: 70px;
+
+        } */
+         #facebooklogo{
+             position: absolute;
+             top:45%;
+             left:65%;
+        }
+        .full {
+            background: url('../../Content/Images/Game Page 7 Congrats.png') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+            margin: 0;
+            padding: 0px;
+            height: auto;
+            width: 100%;
+        }
+        
+
+        .container .img-responsive {
+            float: right;
+            max-width: 100%;
+            max-height: 100%;
+            position: relative;
+            width: 8%;
+            height: 8%;
+            margin-top: 40%;
+            margin-bottom: 10%;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+       
+    </style>
+
+</head>
+<body class="container-fluid full">
+    <div class="container">
+
+        <input type="image" src="~/Content/Images/Continue Button.png" img class="img-responsive" alt="submit" onclick="@("window.location.href=' " + @Url.Action("september","Game") + " ' ");" />
+        <img id="facebooklogo" src="~/Content/Images/Facebook Logo.png" class="img-fluid" alt="Responsive image">
+
+    </div>
+</body>
+</html>

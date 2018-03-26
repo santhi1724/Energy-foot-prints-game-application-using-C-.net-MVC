@@ -1,0 +1,428 @@
+﻿@model Game_Web_App.Models.table1
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"> 
+    <title>Introduction</title>
+    <style>
+        body {
+            background: url('../../Content/Images/Example Game Page 4.png') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+            overflow-y: scroll;
+            overflow-x: scroll;
+        }
+
+
+        #first {
+            position: absolute;
+            top: 88%;
+            left: 25%;
+        }
+
+        #second {
+            position: absolute;
+            top: 88%;
+            left: 22%;
+        }
+
+        #third {
+            position: absolute;
+             top: 88%;
+            left: 35%;
+        }
+
+        #fourth {
+            position: absolute;
+            width: 105%;
+            left:-5%;
+            height:110%;
+            top: -1000px;   
+           
+        }
+
+        #fifth {
+            position: absolute;
+            top: 76%;
+            left:60%;
+            
+        }
+
+        #sixth {
+            position: absolute;
+            top: 76%;
+            left:60%;
+        }
+
+        #bg {
+            position: absolute;
+            width: auto;
+            display: block;
+            height: 100%;
+            float: left;
+            top: 0%;
+        }
+
+      
+
+        #myNumber {
+            position: absolute;
+            top: 12%;
+            left: 8%;
+            width: 10%;
+            border: none;
+            background: transparent;
+            font-size: 300%;
+            color: white;
+        }
+
+        #id {
+            position: absolute;
+            top: 22%;
+            left: 6%;                       
+        }
+
+        #id2 {
+            position: absolute;
+            top: 22%;
+            left: 10%;
+            }
+
+        #set {
+            position: absolute;
+            top: 80%;
+            left: 7%;
+            width: 7%;
+            height: 10%;
+        }
+
+        #option {
+            position: absolute;  
+            left:3%;         
+        }
+
+        #closed_window {
+            position: absolute;
+            top:20%;
+            left:35%;
+            width:22%;
+            height:27%;
+            
+        }
+
+        #open_window {
+            position: absolute;
+            top:19%;
+            left:35%;
+            width:22%;
+            height:28%;
+            
+        }
+
+        #open_status {
+            position: absolute;
+            top: 50%;
+            left: 6%;
+        }
+
+        #ac_off {
+           position: absolute;
+            top:11%;
+            left:36.6%;
+            width:8.1%;
+            height:10.1%;
+        }
+
+        #ac_on {
+           position: absolute;
+            top:11%;
+            left:36.6%;
+            width:8.1%;
+            height:10.1%;
+        }
+
+        #ac_status {
+            position: absolute;
+            top: 50%;
+            left: 6%;
+        }
+
+        #next {
+            position: absolute;
+            top: 75%;
+            left: 7%;
+            height: 15%;
+            width: 7%;
+        }
+
+        #aah {
+            position: absolute;
+            left:3%;
+        }
+
+        input[name=ac] {
+            display: none;
+        }
+
+            input[name=ac] + label {
+                position: absolute;
+                top: 32%;
+                left: 400px;
+                background: url('../../Content/Images/AC_Button.png');
+            }
+
+        input[name=window] {
+            display: none;
+        }
+
+            input[name=window] + label {
+                position: absolute;
+                top: 82%;
+                left: 23%;
+                background: url('../../Content/Images/AC_Button.png');
+            }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="Page4.js"></script>
+</head>
+<body>
+    @using (Html.BeginForm("Heat", "Game", FormMethod.Post, new { id = "formapproval" }))
+    {
+
+        <img id="first" src="~/Content/Images/Page 4. It’s a beautiful_ sunny morning in August.png" />
+        <img id="second" src="~/Content/Images/Page 4 The temperature is 85 degrees and today is a holiday.png">
+        <img id="third" src="~/Content/Images/Outside temperature is 85 degrees.png">
+        <img class='col-xs-12' id="fourth" src="~/Content/Images/August Background_windowsclosed.png">
+
+        <img id="fifth" src="~/Content/Images/But Wait...  it’s too hot inside_.png">
+        <img id="sixth" src="~/Content/Images/Before you decide what to do today_ what temperature would you .png">
+        <img class='image-responsive' id="bg" src="~/Content/Images/side panel.png">
+        <input type = "number" value="70" id="myNumber">
+ @* Html.TextBox("model => model.Room_temp_Page4",70, new { @Class = "myNumber"})*@
+
+
+        <img id="id" src="~/Content/Images/up.png" onclick="myFunction()">
+
+        <img id="id2" src="~/Content/Images/down.png" onclick="myFunction2()">
+        <img id="set" src="~/Content/Images/SET.png" onclick="Set()" >
+        <img id="option" src="~/Content/Images/to cool the room, choose one of the options.png">
+        <div class="form-group">
+            @* <input type='checkbox' class="img-fluid" alt="Responsive image" name='ac' value='valuable' id="ac" />*@
+            <div style="position:relative;top:380px;margin-left:554px;">
+                @*@Html.RadioButtonFor(m => m.AC_status, true, new { @class = "Ac" ,id = "acStstus" })*@
+
+            </div>
+            <img onclick="Acstatus()" src="~/Content/Images/Turn on  AC.png" id="ac" style="position:absolute;top:58%;left:4%;" /> <label for="ac"></label>
+
+        </div>
+            <div class="form-group">
+                @* <input type='checkbox' class="img-fluid" alt="Responsive image" name='window' value='valuable' id="window" />*@
+
+                 
+                <img onclick="Windowstatus()" src="~/Content/Images/OPEN WINDOWaugust.png" id="window" style="position:absolute; top:35%; left:4%;" /><label for="window"></label>
+            </div>
+            @*<div class="form-group">
+                    <input type="submit" class="btn btn-block btn-lg btn-primary" value="Submit" style="position:absolute; top:73%; left:75%;background-color:cadetblue  " />
+                </div>*@
+            <div style="position:relative;top:360px;margin-left:849px;">
+
+                @*@Html.RadioButtonFor(m => m.Window_status, true,new { @class ="window", id="WindowAc"})*@
+            </div>
+            <img id="closed_window" src="~/Content/Images/windows closed.png">
+        <img id="ac_off" src="~/Content/Images/air conditioner off.png" />
+
+            <img id="open_window" src="~/Content/Images/windows open.png">
+            <img id="open_status" src="~/Content/Images/OPEN WINDOWaugust.png">
+        <img id="ac_on" src="~/Content/Images/air conditioner on.png" />
+            <img id="ac_status" src="~/Content/Images/Turn on  AC.png">
+
+            <img id="aah" src="~/Content/Images/Ahh__ It’s much better now_.png">
+            <div>
+                <input type="image" src="~/Content/Images/Button_3-512.png" id="next" alt="submit" style="margin-top:2%;" onclick="@("window.location.href=' " + @Url.Action("Heat", "Game") + " ' "); return" />
+            </div>
+
+            <audio id="audio" style="display:none;" src="~/Content/Page_4_room_music.mp3" controls autoplay loop onloadeddata="setHalfVolume()"></audio>
+
+
+            <script> 
+                var room_temp = 70;
+                function Set() {
+                     
+                    room_temp = document.getElementById("myNumber").value;
+
+                }
+
+                function Acstatus() {
+
+                    var windowCheckbox = $('#WindowAc').is(':checked');
+
+
+                    var acCheckbox = $('#acStstus').is(':checked');
+
+
+                    windowCheckbox = false;
+                    acCheckbox = true;
+
+                   
+                    $.ajax({
+                        url: "Heating",
+                        data: JSON.stringify({ room_temp: room_temp, windowCheckbox: windowCheckbox, acCheckbox: acCheckbox }),
+                        contentType: 'application/json',
+                        type: "POST",
+                        async: false,
+                        success: function (data) {
+
+                        },
+                        error: function () {
+                        }
+                    });
+                }
+
+                function Windowstatus() {
+
+                    var windowCheckbox = $('#WindowAc').is(':checked');
+
+
+                    var acCheckbox = $('#acStstus').is(':checked');
+
+
+                  
+                        windowCheckbox = true;
+                        acCheckbox = false;
+
+
+
+                    $.ajax({
+                        url: "Heating",
+                        data: JSON.stringify({room_temp: room_temp, windowCheckbox: windowCheckbox, acCheckbox: acCheckbox }),
+                        contentType: 'application/json',
+                        type: "POST",
+                        async: false,
+                        success: function (data) {
+
+                        },
+                        error: function () {
+                        }
+                    });
+                }
+                function myFunction() {
+                    
+                  
+                    document.getElementById("myNumber").stepUp(1);
+
+                    
+
+
+                }
+                function myFunction2() {
+                    
+                   document.getElementById("myNumber").stepDown(1);
+                }
+                $(document).ready(function () {
+                    $("#first").hide();
+                    $("#second").hide();
+                    $("#third").hide();
+                    $("#fifth").hide();
+                    $("#sixth").hide();
+                    $("#bg").hide();
+                    $("#myNumber").hide();
+                    $("#id").hide();
+                    $("#id2").hide();
+                    $("#set").hide();
+                    $("#ac,#window,#option,#open_window,#open_status,#ac_on,#ac_status,#aah,#next,#ac_off,#closed_window").hide();
+
+
+                    $("#first").fadeIn(6000, function () {   
+                        $("#first").delay(500).fadeOut("slow");
+                        $("#second").delay(500).fadeIn(6000, function () {
+                            $("#second").delay(500).fadeOut("slow");
+                            $("#third").fadeIn(2000, function () {
+
+                                var bodyHeight = $('body').height();
+                                var footerOffsetTop = $('#fourth').offset().top;
+                                var topToBottom = bodyHeight - footerOffsetTop;
+
+                                $('#fourth').css({ top: 'auto', bottom: topToBottom });
+                                
+                                $("#fourth").delay(1000).animate({
+                                    bottom: '00px',
+                                }, 3200);
+                            
+                                
+                                $("#ac_off,#closed_window,#third").delay(4000).fadeIn(2000, function () {
+                                 
+
+                                   
+                                    $("#fifth").delay(1500).fadeIn(800, function () {
+                                        
+                                        $("#fifth").delay(200).fadeOut("slow");
+                                        $("#sixth").delay(1500).fadeIn(5000, function () {
+                                            $("#sixth").delay(3000).fadeOut("slow");
+
+                                            $("#bg,#myNumber,#id2,#id,#set").delay(5000).fadeIn(6000, function () {
+
+                                            });
+
+                                        });
+                                    });
+                                });
+                            });
+                        });
+
+                    });
+                    $("#set").click(function () {
+
+                        $("#option,#window,#ac").delay(200).fadeIn(6000, function () {
+
+                        });
+
+
+                    });
+                    $("#window").click(function () {
+                        $("#option,#window,#ac,#set").delay(50).fadeOut("slow");
+
+
+                        $("#open_window").delay(1000).fadeIn(2000, function () {
+                            $("#open_status").delay(1500).fadeIn(2500, function () {
+                                $("#aah").delay(1000).fadeIn(2000, function () {
+                                    $("#next").delay(1300).fadeIn(2000, function () {
+
+                                    });
+                                });
+
+                            });
+
+
+                        });
+
+
+                    });
+                    $("#ac").click(function () {
+                        $("#option,#window,#ac,#set").delay(50).fadeOut("slow");
+                        $("#ac_on").delay(1000).fadeIn(2000, function () {
+                            $("#ac_status").delay(1000).fadeIn(2500, function () {
+                                $("#aah").delay(1000).fadeIn(2000, function () {
+                                    $("#next").delay(1300).fadeIn(2000, function () {
+
+                                    });
+                                });
+
+                            });
+
+                        });
+
+
+                    });
+                    return false;
+                });
+            </script>
+    }
+</body>
+</html>

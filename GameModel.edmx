@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GameDBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Table_1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Room_temp_Page4" Type="int" />
+          <Property Name="AC_status" Type="bit" />
+          <Property Name="Window_status" Type="bit" />
+        </EntityType>
+        <EntityType Name="Table_2">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" Nullable="false" />
+          <Property Name="Room_temp_Heat" Type="int" Nullable="false" />
+          <Property Name="AC_status_heat" Type="binary" MaxLength="50" />
+          <Property Name="Window_status_heat" Type="binary" MaxLength="50" />
+          <Property Name="Blinds_status_heat" Type="binary" MaxLength="50" />
+          <Property Name="Fan_status_heat" Type="binary" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Table_Housing">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="House_type" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Table_1_Table_Housing">
+          <End Role="Table_Housing" Type="Self.Table_Housing" Multiplicity="1" />
+          <End Role="Table_1" Type="Self.Table_1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Housing">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Table_1">
+              <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_2_Table_Housing">
+          <End Role="Table_Housing" Type="Self.Table_Housing" Multiplicity="1" />
+          <End Role="Table_2" Type="Self.Table_2" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Housing">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Table_2">
+              <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GameDBModel1StoreContainer">
+          <EntitySet Name="Table_1" EntityType="Self.Table_1" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_2" EntityType="Self.Table_2" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_Housing" EntityType="Self.Table_Housing" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Table_1_Table_Housing" Association="Self.FK_Table_1_Table_Housing">
+            <End Role="Table_Housing" EntitySet="Table_Housing" />
+            <End Role="Table_1" EntitySet="Table_1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_2_Table_Housing" Association="Self.FK_Table_2_Table_Housing">
+            <End Role="Table_Housing" EntitySet="Table_Housing" />
+            <End Role="Table_2" EntitySet="Table_2" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GameDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Table_1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Room_temp_Page4" Type="Int32" />
+          <Property Name="AC_status" Type="Boolean" />
+          <Property Name="Window_status" Type="Boolean" />
+          <NavigationProperty Name="Table_Housing" Relationship="Self.FK_Table_1_Table_Housing" FromRole="Table_1" ToRole="Table_Housing" />
+        </EntityType>
+        <EntityType Name="Table_2">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" />
+          <Property Name="Room_temp_Heat" Type="Int32" Nullable="false" />
+          <Property Name="AC_status_heat" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="Window_status_heat" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="Blinds_status_heat" Type="Binary" MaxLength="50" FixedLength="true" />
+          <Property Name="Fan_status_heat" Type="Binary" MaxLength="50" FixedLength="true" />
+          <NavigationProperty Name="Table_Housing" Relationship="Self.FK_Table_2_Table_Housing" FromRole="Table_2" ToRole="Table_Housing" />
+        </EntityType>
+        <EntityType Name="Table_Housing">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="House_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Table_1" Relationship="Self.FK_Table_1_Table_Housing" FromRole="Table_Housing" ToRole="Table_1" />
+          <NavigationProperty Name="Table_2" Relationship="Self.FK_Table_2_Table_Housing" FromRole="Table_Housing" ToRole="Table_2" />
+        </EntityType>
+        <Association Name="FK_Table_1_Table_Housing">
+          <End Role="Table_Housing" Type="Self.Table_Housing" Multiplicity="1" />
+          <End Role="Table_1" Type="Self.Table_1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Housing">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Table_1">
+              <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_2_Table_Housing">
+          <End Role="Table_Housing" Type="Self.Table_Housing" Multiplicity="1" />
+          <End Role="Table_2" Type="Self.Table_2" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Table_Housing">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="Table_2">
+              <PropertyRef Name="User_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GameDBEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Table_1" EntityType="Self.Table_1" />
+          <EntitySet Name="Table_2" EntityType="Self.Table_2" />
+          <EntitySet Name="Table_Housing" EntityType="Self.Table_Housing" />
+          <AssociationSet Name="FK_Table_1_Table_Housing" Association="Self.FK_Table_1_Table_Housing">
+            <End Role="Table_Housing" EntitySet="Table_Housing" />
+            <End Role="Table_1" EntitySet="Table_1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_2_Table_Housing" Association="Self.FK_Table_2_Table_Housing">
+            <End Role="Table_Housing" EntitySet="Table_Housing" />
+            <End Role="Table_2" EntitySet="Table_2" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GameDBModel1StoreContainer" CdmEntityContainer="GameDBEntities3">
+          <EntitySetMapping Name="Table_1">
+            <EntityTypeMapping TypeName="GameDBModel1.Table_1">
+              <MappingFragment StoreEntitySet="Table_1">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Room_temp_Page4" ColumnName="Room_temp_Page4" />
+                <ScalarProperty Name="AC_status" ColumnName="AC_status" />
+                <ScalarProperty Name="Window_status" ColumnName="Window_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_2">
+            <EntityTypeMapping TypeName="GameDBModel1.Table_2">
+              <MappingFragment StoreEntitySet="Table_2">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="Room_temp_Heat" ColumnName="Room_temp_Heat" />
+                <ScalarProperty Name="AC_status_heat" ColumnName="AC_status_heat" />
+                <ScalarProperty Name="Window_status_heat" ColumnName="Window_status_heat" />
+                <ScalarProperty Name="Blinds_status_heat" ColumnName="Blinds_status_heat" />
+                <ScalarProperty Name="Fan_status_heat" ColumnName="Fan_status_heat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_Housing">
+            <EntityTypeMapping TypeName="GameDBModel1.Table_Housing">
+              <MappingFragment StoreEntitySet="Table_Housing">
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="User_name" ColumnName="User_name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="House_type" ColumnName="House_type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

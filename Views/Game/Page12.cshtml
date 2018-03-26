@@ -1,0 +1,106 @@
+﻿@model Game_Web_App.Models.Table2
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Page12</title>
+    <script src="jquery-2.2.4.min.js"></script>
+    <style type="text/css">
+        body {
+            background: url('../../Content/Images/Game Map.png')no-repeat center center fixed;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+        }
+
+    #next {
+        position: absolute;
+        top: 84%;
+        left: 87%;
+        width: 4%;
+        height: auto;
+    }
+    #Star1{
+	    position: absolute;
+	    top: 42.9%;
+	    left: 56.9%;
+	    width: 2.2%;
+	    height: auto;
+	}
+	#Star2{
+		position: absolute;
+		top: 42.9%;
+		left: 59.35%;
+		width: 2.2%;
+		height: auto;
+	}
+	#Star3{
+		position: absolute;
+		top: 42.9%;
+		left: 61.75%;
+		width: 2.2%;
+		height: auto;
+	}
+   
+    #username{
+        position: absolute;
+		top: 27%;
+		left: 77%;
+        font-size:150%;
+    }
+    #score{
+        position: absolute;
+		top: 27%;
+		left: 90%;
+        font-size:150%;
+    }
+   
+     
+   
+    </style>
+</head>
+
+<body>
+    <div id="score">
+        <label>@ViewData["fscore"]</label>
+            </div>
+            <div id="username">
+                <label>@ViewData["username"]  </label>
+            </div>
+            <img id="Star1" src="~/Content/Images/Star.png">
+            <img id="Star2" src="~/Content/Images/Star.png">
+            <img id="Star3" src="~/Content/Images/Star.png">
+            <script>
+
+                $(document).ready(function () {
+
+                    var starValue = jQuery("textarea#score").val();
+                    if (starValue <= 550) {
+
+                        $('#Star1').show();
+
+                    }
+                    else if (starValue <= 750) {
+                        $('#Star1').show();
+                        $('#Star2').show();
+
+                    }
+                    else {
+                        $('#Star1').show();
+                        $('#Star2').show();
+                        $('#Star3').show();
+
+                    }
+                });
+
+            </script>
+            <div class="container">
+                <img src="~/Content/Images/Continue Button.png" id="next" alt="submit" onclick="@("window.location.href=' " + @Url.Action("cold","Game") + " ' ");" />
+            </div>
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿@model Game_Web_App.Models.table7
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    
+    
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Page7</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+
+        </script>
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <style type="text/css">
+           .full{
+          
+                background: url('../../Content/Images/Page 7_bg.png') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+            margin: 0;
+            padding: 0px;
+            height: auto;
+            width: 100%;
+               
+                back;
+        }
+            
+        
+                    /*#set
+            {
+                position: absolute;
+                top: 470px;
+                left: 30px;
+                height: 120px;
+                width: 120px;
+
+            }*/
+                    #myNumber {
+                        position: absolute;
+                        top: 40%;
+                        left: 5%;
+                        width: 10%;
+                        border: none;
+                        background: transparent;
+                        font-size: 300%;
+                        color: white;
+                    }
+
+                    #id {
+                        position: absolute;
+                        left: 3%;
+                        top: 50%;
+                        width: 3%;
+                        height: auto;
+                    }
+
+                    #id2 {
+                        position: absolute;
+                        left: 8%;
+                        width: 3%;
+                        top: 50%;
+                        height: auto;
+                    }
+                    /*#id
+                    {
+                    position:absolute;
+                    left: 40px;
+                    top: 330px;
+
+                    width: 60px;
+
+
+                    height: auto;
+
+                }
+                #id2{
+                    position:absolute;
+                    left: 80px;
+                    width: 60px;
+                    top: 330px;
+                    height: auto;
+
+                }*/
+                    #next {
+                        position: absolute;
+                        top: 76%;
+                        left: 3%;
+                        width: 10%;
+                        height: 14%;
+                    }
+        </style>
+        
+    </head>
+    
+        
+       
+           
+            <body class="container-fluid full">
+@using (Html.BeginForm("cold", "Game", FormMethod.Post, new { id = "formapproval" }))
+{
+    <div>
+        <input type="number" value="70" id="myNumber">
+    </div>
+        <div>
+            <img id="id" src="~/Content/Images/temp_up.png" class="img-fluid" alt="Responsive image" onclick="myFunction()">
+            <img id="id2" src="~/Content/Images/temp_down.png" class="img-fluid" alt="Responsive image" onclick="myFunction2()">
+        </div>
+
+        <div class="container">
+            <input type="image" src="~/Content/Images/set.png" id="next" img class="img-responsive" alt="submit" onclick="savetemp()" />
+        </div>
+
+                 
+                
+                            <script>
+
+
+                                var room_temperature = 70;
+
+
+    function myFunction() {
+
+        document.getElementById("myNumber").stepUp(1);
+
+    }
+    function myFunction2() {
+        document.getElementById("myNumber").stepDown(1);
+    }
+    function savetemp() {
+       
+       var room_temperature = document.getElementById("myNumber").value;
+        
+        $.ajax({
+            url: "Page7values",
+            type: 'POST',
+            contentType: "application/json; charset=utf-8",
+            dataType: 'json',
+            data: JSON.stringify({
+                room_temperature: room_temperature
+            }),
+            async: false,
+           
+        });
+    
+      
+    }
+                 
+
+
+
+
+                            @*  alert("Before ajax");
+
+                        $.ajax({
+                            url: "Page7values",
+                            data: JSON.stringify({ room_temperature: room_temperature }),
+                            contentType: 'application/json',
+                            type: "POST",
+                            async: false,
+                            success: function (data) {
+
+                            },
+                            error: function () {
+                            }
+                        });
+
+                        alert("After Ajax");
+                    }*@
+
+                </script>
+}
+
+            </body>
+           
+           
+</html>
+
+
+

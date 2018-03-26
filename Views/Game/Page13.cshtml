@@ -1,0 +1,442 @@
+﻿@model Game_Web_App.Models.Table9
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ExtremeBill</title>
+
+
+    <script src="jquery-2.2.4.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background: url('../../Content/Images/Background Extreme Bill (1).png') no-repeat center center fixed;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: 100% 100%;
+        }
+
+        #blind_cl {
+            position: absolute;
+            top: 27%;
+            left: 37.7%;
+            width: 21.5%;   
+            height: 24.5%;
+        }
+
+        #caulk_c {
+           position: absolute;
+            top: 26.8%;
+            left: 37.7%;
+            width: 21.5%;   
+            height: 24.5%;
+        }
+
+        #duct_c {
+            position: absolute;
+            top: 60%;
+            left: 30%;
+        }
+
+        #set {
+            position: absolute;
+            top: 88%;
+            left: 13%;
+            width: 6%;
+            height: 9%;
+        }
+
+        #blind_o {
+            position: absolute;
+            left: 00px;
+            top: 00px;
+            width: 350%;
+            height: 500%;
+        }
+
+        #myNumber {
+            position: absolute;
+            top: 1%;
+            left: 12%;
+            width: 10%;
+            border: none;
+            background: transparent;
+            font-size: 300%;
+            color: white;
+        }
+
+        #id {
+            position: absolute;
+            left: 9%;
+            top: 11%;
+            width: 3%;
+            height: auto;
+        }
+
+        #id2 {
+            position: absolute;
+            left: 15%;
+            width: 3%;
+            top: 11%;
+            height: auto;
+        }
+
+        #selecttext {
+            position: absolute;
+            top: 19%;
+            left: 3%;
+        }
+
+        #heat_off {
+            position: absolute;
+            top: 89%;
+            left: 88%;
+            width: 6%;
+            height: 9%;
+        }
+
+        #heat_on {
+            position: absolute;
+            top: 30%;
+            left: 45%;
+            width: 56%;
+            height: 70%;
+        }
+
+        #window {
+            position: relative;
+            top: 30%;
+            left: 62%;
+        }
+
+        #heat_off {
+            position: absolute;
+            top: 90%;
+            left: 92%;
+            width: 5%;
+            height: 11%;
+        }
+
+        #heat_text {
+            position: absolute;
+            top: 36%;
+            left: 13%;
+        }
+
+        #plastic_text {
+            position: absolute;
+            top: 51%;
+            left: 11%;
+        }
+
+        #ducts_text {
+            position: absolute;
+            top: 67%;
+            left: 13%;
+        }
+
+        #caulking_text {
+            position: absolute;
+            top: 81%;
+            left: 13%;
+        }
+
+        #set {
+            position: absolute;
+            top: 88%;
+            left: 13%;
+            width: 6%;
+            height: 9%;
+        }
+
+        input[name=thing1] {
+            display: none;
+        }
+
+            input[name=thing1] + label {
+                position: absolute;
+                top: 36%;
+                left: 5%;
+                background: url("../../Content/Images/Reduce Heat Off.png") no-repeat;
+                background-size: 32%;
+                height: 8%;
+                width: 8%;
+                display: inline-block;
+                padding: 0 0 0 0px;
+            }
+
+            input[name=thing1]:checked + label {
+                position: absolute;
+                top: 36%;
+                left: 5%;
+                background: url("../../Content/Images/Reduce Heat On.png") no-repeat;
+                background-size: 32%;
+                height: 8%;
+                width: 8%;
+                display: inline-block;
+                padding: 0 0 0 0px;
+            }
+
+        input[name=thing2] {
+            display: none;
+        }
+
+            input[name=thing2] + label {
+                position: absolute;
+                top: 51%;
+                left: 5%;
+                background: url('../../Content/Images/plastic insulated off.png') no-repeat;
+                background-size: 50%;
+                height: 10%;
+                width: 10%;
+                display: inline-block;
+                padding: 0 0 0 0px;
+            }
+
+            input[name=thing2]:checked + label {
+                position: absolute;
+                top: 51%;
+                left: 5%;
+                background: url('../../Content/Images/plastic insulated on.png') no-repeat;
+                background-size: 50%;
+                height: 10%;
+                width: 10%;
+                display: inline-block;
+                padding: 0 0 0 0px;
+            }
+
+        input[name=thing3] {
+            display: none;
+        }
+
+            input[name=thing3] + label {
+                position: absolute;
+                top: 66%;
+                left: 5%;
+                background: url('../../Content/Images/Air Filter Off.png') no-repeat;
+                background-size: 50%;
+                height: 10%;
+                width: 10%;
+                display: inline-block;
+                padding: 0 0 0 0px;
+            }
+
+            input[name=thing3]:checked + label {
+                position: absolute;
+                top: 66%;
+                left: 5%;
+                background: url('../../Content/Images/Air Filter On.png') no-repeat;
+                background-size: 50%;
+                height: 10%;
+                width: 10%;
+                display: inline-block;
+                padding: 0 0 0 0px;
+            }
+
+        input[name=thing4] {
+            display: none;
+        }
+
+            input[name=thing4] + label {
+                position: absolute;
+                top: 81%;
+                left: 5%;
+                background: url("../../Content/Images/caulking symbol off.png") no-repeat;
+                background-size: 50%;
+                height: 10%;
+                width: 10%;
+                display: inline-block;
+                padding: 0 0 0 0px;
+            }
+
+            input[name=thing4]:checked + label {
+                position: absolute;
+                top: 81%;
+                left: 5%;
+                background: url("../../Content/Images/caulking symbol on.png") no-repeat;
+                background-size: 50%;
+                height: 10%;
+                width: 10%;
+                display: inline-block;
+                padding: 0 0 0 0px;
+            }
+    </style>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    @using (Html.BeginForm("Page14", "Game", FormMethod.Post, new { id = "formapproval" }))
+    {
+
+        <input type="number" value="70" id="myNumber">
+
+        <div>
+            <img id="id" src="~/Content/Images/up.png" class="img-fluid" alt="Responsive image" onclick="myFunction()">
+            <img id="id2" src="~/Content/Images/down.png" class="img-fluid" alt="Responsive image" onclick="myFunction2()">
+        </div>
+        <img id="plastic_text" src="~/Content/Images/Plastic Insulated Windows.png" class="img-fluid" alt="Responsive image">
+        <img id="heat_text" src="~/Content/Images/Turn down the heat.png" class="img-fluid" alt="Responsive image">
+        <img id="ducts_text" src="~/Content/Images/change air filter.png" class="img-fluid" alt="Responsive image">
+        <img id="caulking_text" src="~/Content/Images/Caulkingtext.png" class="img-fluid" alt="Responsive image">
+        <img id="heat_off" src="../../Content/Images/Heat On (1).png">
+
+        <img id="window" src="../../Content/Images/window_close_1.png" style="display: none;">
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+        <script>
+            var room_temp = 70;
+
+
+            function myFunction() {
+
+                document.getElementById("myNumber").stepUp(1);
+
+            }
+            function myFunction2() {
+                document.getElementById("myNumber").stepDown(1);
+            }
+            function BillValues() {
+
+                room_temp = document.getElementById("myNumber").value;
+
+                if ($("#thing1").is(":checked")) {
+                    var heatCheckbox = 1;
+                }
+                else {
+                    var heatCheckbox = 0;
+                }
+
+                if ($("#thing2").is(":checked")) {
+                    var windowCheckbox = 1;
+                }
+                else {
+                    var windowCheckbox = 0;
+                }
+
+                if ($("#thing3").is(":checked")) {
+                    var ductsCheckbox = 1;
+                }
+                else {
+                    var ductsCheckbox = 0;
+                }
+
+                if ($("#thing4").is(":checked")) {
+                    var caulkingCheckbox = 1;
+
+                }
+                else {
+                    var caulkingCheckbox = 0;
+                }
+
+         //alert("Before ajax");
+
+                $.ajax({
+                    url: "BillValues",
+                    data: JSON.stringify({ room_temp: room_temp, heatCheckbox: heatCheckbox, windowCheckbox: windowCheckbox, ductsCheckbox: ductsCheckbox, caulkingCheckbox: caulkingCheckbox }),
+                    contentType: 'application/json',
+                    type: "POST",
+                    async: false,
+                    success: function (data) {
+
+                    },
+                    error: function () {
+                    }
+                });
+        //alert("After Ajax");
+            }
+
+            $(document).ready(function () {
+
+                $("input[id='thing1']").change(function () {
+                    if ($(this).is(":checked")) {
+                        $('#heat_off').attr('src', '../../Content/Images/Heat Off.png');
+                    }
+                    else {
+                        $('#heat_off').attr('src', '../../Content/Images/Heat On (1).png');
+                    }
+                });
+                $("input[id='thing2']").change(function () {
+
+                    if ($(this).is(":checked")) {
+
+                        $('#blind_cl').attr('src', '../../Content/Images/plastic Window Insulation.png');
+                    }
+                    else {
+                        $('#blind_cl').attr('src', '../../Content/Images/plastic_null.png');
+                    }
+
+
+                });
+                $("input[id='thing3']").change(function () {
+
+                    if ($(this).is(":checked")) {
+
+                        $('#duct_c').attr('src', '../../Content/Images/changing-furnace-filter.jpg.png');
+                    }
+                    else {
+                        $('#duct_c').attr('src', '../../Content/Images/plastic_null.png');
+                    }
+
+
+                });
+                $("input[id='thing4']").change(function () {
+                    if ($(this).is(":checked")) {
+
+                        $('#caulk_c').attr('src', '../../Content/Images/Caulk.png');
+                    }
+                    else {
+                        $('#caulk_c').attr('src', '../../Content/Images/plastic_null.png');
+
+                    }
+
+                });
+
+
+                $("input[value='valuable']").change(function () {
+
+                    var maxAllowed = 2;
+                    var cnt = $("input[value='valuable']:checked").length;
+                    if (cnt > maxAllowed) {
+                        $(this).prop("checked", "");
+                        alert('You can select maximum ' + maxAllowed + ' options');
+                    }
+                });
+
+            });
+        </script>
+
+        <input type='checkbox' name='thing1' value='valuable' id="thing1" /><label for="thing1"></label>
+        <br />
+        <input type='checkbox' name='thing2' value='valuable' id="thing2" /><label for="thing2"></label>
+        <br />
+        <input type='checkbox' name='thing3' value='valuable' id="thing3" /><label for="thing3"></label>
+        <br />
+        <input type='checkbox' name='thing4' value='valuable' id="thing4" /><label for="thing4"></label>
+
+        <div id="blind_c">
+            <img id="blind_cl" src="../../Content/Images/plastic_null.png">
+        </div>
+
+        <div id="caulk">
+            <img id="caulk_c" src="../../Content/Images/plastic_null.png">
+        </div>
+        <div id="duct">
+            <img id="duct_c" src="../../Content/Images/plastic_null.png" width="200" height="200">
+        </div>
+
+        <div class="container">
+            <input id="set" type="image" src="~/Content/Images/set.png" img class="img-responsive" alt="submit" onclick="BillValues()" />
+        </div>
+
+    }
+
+
+</body>
+</html>
