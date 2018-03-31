@@ -1,7 +1,7 @@
 import pyodbc
 import csv
 
-connection = pyodbc.connect(@"data source=RM62APOPLIN.design.iastate.edu\ALENKA;initial catalog=GameDB;integrated security=False;User Id=dbadmin;Password=EnergyGame;");
+connection = pyodbc.connect(@"data source=RM62APOPLIN.design.iastate.edu\xxxx;initial catalog=GameDB;integrated security=False;User Id=xxxx;Password=xxxxx;");
 )
 
 cursor = connection.cursor()
